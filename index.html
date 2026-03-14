@@ -18,50 +18,51 @@
 </head>
 <body class="bg-gray-50 font-sans text-gray-900" x-data="courseApp()">
 
-    <header class="p-6 flex justify-center">
+    <header class="p-4 sm:p-6 flex justify-center">
         <div class="bg-black text-white p-2 rounded-lg">
             <i class="fa-solid fa-microchip text-xl"></i>
         </div>
     </header>
 
     <main>
-        <section class="bg-white border-b border-gray-200 py-16 sm:py-20">
+        <section class="bg-white border-b border-gray-200 py-12 sm:py-20">
             <div class="max-w-4xl mx-auto px-4 text-center fade-in">
-                <h1 class="text-4xl sm:text-5xl font-bold tracking-tight mb-4">Electrónica Analógica</h1>
-                <p class="text-lg text-gray-500 max-w-2xl mx-auto">Alumno: Gonzalez Quezada Brismar Alexander</p>
-                <p class="text-lg text-gray-500 max-w-2xl mx-auto">Listado general de tareas y proyectos del curso</p>
+                <h1 class="text-3xl sm:text-5xl font-bold tracking-tight mb-3 sm:mb-4 leading-tight">Electrónica Analógica</h1>
+                <p class="text-base sm:text-lg text-gray-500 max-w-2xl mx-auto px-2">Alumno: Gonzalez Quezada Brismar Alexander</p>
+                <p class="text-base sm:text-lg text-gray-500 max-w-2xl mx-auto px-2">Listado general de tareas y proyectos del curso</p>
             </div>
         </section>
 
-        <section class="py-12 max-w-4xl mx-auto px-4 fade-in" style="animation-delay: 0.2s;">
-            <div class="flex justify-between items-center mb-8">
-                <h2 class="text-2xl font-semibold tracking-tight">Todas las Asignaciones</h2>
-                <span class="bg-gray-200 text-gray-600 px-3 py-1 rounded-full text-xs font-bold" 
+        <section class="py-10 sm:py-12 max-w-4xl mx-auto px-4 fade-in" style="animation-delay: 0.2s;">
+            
+            <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 mb-6 sm:mb-8">
+                <h2 class="text-xl sm:text-2xl font-semibold tracking-tight">Todas las Asignaciones</h2>
+                <span class="bg-gray-200 text-gray-600 px-3 py-1 rounded-full text-xs font-bold self-start sm:self-auto" 
                       x-text="assignments.filter(a => a.title).length + ' tareas'"></span>
             </div>
 
             <div class="space-y-4">
                 <template x-for="(task, index) in assignments" :key="index">
-                    <div x-show="task.title" class="bg-white border border-gray-200 rounded-2xl p-5 flex items-center justify-between shadow-sm hover:shadow-md transition-shadow">
+                    <div x-show="task.title" class="bg-white border border-gray-200 rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between shadow-sm hover:shadow-md transition-shadow gap-4 sm:gap-6">
                         
-                        <div class="flex items-center space-x-4">
-                            <div class="bg-gray-100 p-3 rounded-xl text-gray-400">
-                                <i class="fa-regular fa-file-lines text-xl"></i>
+                        <div class="flex items-start space-x-3 sm:space-x-4">
+                            <div class="bg-gray-100 p-3 rounded-xl text-gray-400 shrink-0 mt-1 sm:mt-0">
+                                <i class="fa-regular fa-file-lines text-lg sm:text-xl"></i>
                             </div>
                             <div>
-                                <h3 class="font-bold text-gray-800" x-text="task.title"></h3>
-                                <p class="text-sm text-gray-400">Documento disponible</p>
+                                <h3 class="font-bold text-gray-800 text-sm sm:text-base leading-snug" x-text="task.title"></h3>
+                                <p class="text-xs sm:text-sm text-gray-400 mt-1">Documento disponible</p>
                             </div>
                         </div>
 
-                        <div class="flex space-x-2">
+                        <div class="flex w-full sm:w-auto space-x-2 shrink-0">
                             <a :href="task.dropboxLink.replace('dl=0', 'dl=1')" target="_blank" 
-                               class="flex items-center px-4 py-2 border border-gray-300 rounded-xl text-sm font-semibold hover:bg-gray-50 transition-colors">
+                               class="flex-1 sm:flex-none flex justify-center items-center px-4 py-2 border border-gray-300 rounded-xl text-sm font-semibold hover:bg-gray-50 transition-colors">
                                 <i class="fa-solid fa-download mr-2 text-gray-500"></i> Descargar
                             </a>
                             <a :href="task.dropboxLink" target="_blank"
-                               class="px-5 py-2 bg-black text-white rounded-xl text-sm font-semibold hover:bg-gray-800 transition-colors">
-                                Abrir <i class="fa-solid fa-arrow-up-right-from-square ml-1 text-[10px]"></i>
+                               class="flex-1 sm:flex-none flex justify-center items-center px-5 py-2 bg-black text-white rounded-xl text-sm font-semibold hover:bg-gray-800 transition-colors">
+                                Abrir <i class="fa-solid fa-arrow-up-right-from-square ml-2 text-[10px]"></i>
                             </a>
                         </div>
 
@@ -100,4 +101,3 @@
     </script>
 </body>
 </html>
-
