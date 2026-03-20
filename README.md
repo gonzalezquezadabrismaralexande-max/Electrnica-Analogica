@@ -1,2 +1,2 @@
-# Electr-nica-Anal-gica
+# Electronica-Anal-gica
 Organizador de tareas y proyectos
